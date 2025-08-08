@@ -30,12 +30,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Toaster position="top-center" />
         <TanStackProvider>
           <Header />
           <main className={css.main}>{children}</main>
+
           <Footer />
           <ReactQueryDevtools initialIsOpen={false} />
         </TanStackProvider>
