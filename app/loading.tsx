@@ -6,5 +6,5 @@ export default function Loading() {
     </div>
   );
 }
-// error, !note
-<p>Something went wrong.</p>;
+// This component can be used to show a loading state while data is being fetched.
+// It can be imported and used in any page or component where you need to indicate loading,
