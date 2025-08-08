@@ -11,9 +11,6 @@ const Footer = () => {
             Contact us:
             <a href="mailto:student@notehub.app">student@notehub.app</a>
           </p>
-          <p>
-            Created <time dateTime="2025">2025</time>
-          </p>
         </div>
       </div>
     </footer>

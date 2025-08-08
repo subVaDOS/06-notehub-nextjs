@@ -6,3 +6,5 @@ export default function Loading() {
     </div>
   );
 }
+// error, !note
+<p>Something went wrong.</p>;
