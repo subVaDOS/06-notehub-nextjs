@@ -12,9 +12,9 @@ interface Params {
   search?: string;
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE as string;
+console.log('Base URL:', baseUrl); // Додайте цей лог, щоб побачити, що там
 const notesUrl = `${baseUrl}/notes`;
-const myKey = process.env.NEXT_PUBLIC_NOTES_TOKEN;
 
 export async function fetchNotes(
   page: number = 1,
@@ -32,7 +32,7 @@ export async function fetchNotes(
     notesUrl,
     {
       headers: {
-        Authorization: `Bearer ${myKey}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTES_TOKEN}`,
       },
       params,
     },
@@ -43,7 +43,7 @@ export async function fetchNotes(
 export const addNote = async (noteData: NewNoteData): Promise<Note> => {
   const response = await axios.post<Note>(`${notesUrl}`, noteData, {
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTES_TOKEN}`,
     },
   });
   return response.data;
@@ -52,7 +52,7 @@ export const addNote = async (noteData: NewNoteData): Promise<Note> => {
 export const deleteNote = async (id: string): Promise<Note> => {
   const response = await axios.delete<Note>(`${notesUrl}/${id}`, {
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTES_TOKEN}`,
     },
   });
   return response.data;
@@ -61,7 +61,7 @@ export const deleteNote = async (id: string): Promise<Note> => {
 export async function fetchNoteById(id: string): Promise<Note> {
   const response = await axios.get<Note>(`${notesUrl}/${id}`, {
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTES_TOKEN}`,
     },
   });
   return response.data;

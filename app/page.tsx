@@ -1,4 +1,6 @@
 import css from './Home.module.css';
+// Ensure that Home.module.css exists in the same directory and contains
+// .container, .title, and .description class definitions.
 
 export default function Home() {
   return (
