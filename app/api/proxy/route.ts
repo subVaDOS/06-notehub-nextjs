@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const endpoint = searchParams.get('endpoint') || '';
   const token = process.env.NEXT_PUBLIC_NOTES_TOKEN;
-
   try {
     const res = await fetch(
       `https://notehub-public.goit.study/api${endpoint}`,
@@ -14,7 +12,6 @@ export async function GET(req: NextRequest) {
         },
       },
     );
-
     const data = await res.json();
     return NextResponse.json(data);
   } catch (error) {
