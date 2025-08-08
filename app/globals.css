@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Remove Tailwind directives if not using Tailwind CSS */
 
 body {
   font-family:
